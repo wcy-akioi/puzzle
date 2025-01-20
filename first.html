@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解密游戏</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+        .button-container {
+            margin-bottom: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #333;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #555;
+        }
+        .pull-up-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: height 0.3s ease;
+        }
+        .pull-up-bar.expanded {
+            height: 300px;
+        }
+        .pull-up-bar.expanded p {
+            align-self: center; /* Ensure text is centered vertically in the expanded bar */
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <a href="index" class="button">回到首页</a>
+
+        <a href="second" class="button">下一关</a>
+    </div>
+    <div class="pull-up-bar" id="pullUpBar" onclick="togglePullUpBar()">
+        <p id="pullUpText">点击展开更多内容...</p>
+    </div>
+    <script>
+        function togglePullUpBar() {
+            var pullUpBar = document.getElementById('pullUpBar');
+            var pullUpText = document.getElementById('pullUpText');
+            pullUpBar.classList.toggle('expanded');
+            if (pullUpBar.classList.contains('expanded')) {
+                pullUpText.textContent = '提示：作者不小心把链接挂反了（而且作者还很懒，不想改）';
+            } else {
+                pullUpText.textContent = '点击展开更多内容...';
+            }
+        }
+    </script>
+</body>
+</html>
